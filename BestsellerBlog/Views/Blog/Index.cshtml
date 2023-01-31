@@ -1,0 +1,36 @@
+﻿@model List<Post>
+@{
+    ViewData["Title"] = "Home page";
+    
+}
+
+<div class="newshead">
+    <h1 class="display-4">The News of BESTSELLER</h1>
+    <a type="button" class="btn btn-primary" asp-action="CreatePost">Add</a>
+    </a>
+</div>
+
+
+
+
+  
+
+    @{  
+        foreach (var post in Model)
+        {
+            <div class="newscontainer" id="news-1">
+            <div class="head">
+                <p class="date">@post.CreatedDate</p>
+                <a asp-action="EditPost" asp-route-id=@post.Id>Edit</a>
+                <a asp-action="Delete" asp-route-id=@post.Id>Delete</a>
+            </div>
+
+            <div class="title">@post.Title</div>
+            <div class="id">@post.Id</div>
+            <div class="content">@post.Content</div>
+            </div>
+        }
+     }    
+    
+</div>
+
