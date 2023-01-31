@@ -1,0 +1,13 @@
+﻿@model Post
+@{
+    ViewBag.Action = "EditPost";   
+}
+
+<div class="mb-4">
+    <h1>Edit Post</h1>
+</div>
+
+@Html.ValidationSummary("Edit was unsuccessful. Please correct the errors and try again")
+
+@await Html.PartialAsync("PostForm", Model)
+

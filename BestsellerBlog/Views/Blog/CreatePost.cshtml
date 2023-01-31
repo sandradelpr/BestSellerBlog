@@ -1,0 +1,17 @@
+﻿@model Post
+
+@{
+    ViewBag.Action = "CreatePost";   
+}
+
+
+<div class="mb-4">
+    <h1>New Post</h1>
+</div>
+
+@Html.ValidationSummary("Create a Post was unsuccessful. Please correct the errors and try again")
+
+@await Html.PartialAsync("PostForm", Model)
+
+
+

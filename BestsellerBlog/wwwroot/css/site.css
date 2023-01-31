@@ -16,3 +16,52 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.newshead > h1 {
+    float:left;
+}
+
+.newshead > a {
+    float:right;
+    margin-top:10px;
+}
+
+.newscontainer {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.title > a {
+    text-decoration: none; 
+}
+
+.options {
+    right: 10px;
+}
+
+.body {
+    clear:both;
+    margin-top: 20px;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.footer{
+    margin-top: 20px;
+    float: right;
+}
+
+.back {
+    margin-top: 20px;
+}
+
+.headscontainer {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-top: 20px;
+    padding: 10px;
+}

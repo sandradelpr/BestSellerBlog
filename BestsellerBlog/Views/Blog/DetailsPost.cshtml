@@ -1,0 +1,22 @@
+﻿@model Post
+
+<div class="headscontainer">
+    <h3>@Model.Title</h3>
+</div>
+
+<div class="newscontainer">
+    <p>
+     <small>
+         @Model.Description
+     </small>
+    </p>
+</div>
+
+
+<div class="footer">
+    @Model.CreatedDate.ToString("dd/MM/yyyy hh:mm")
+</div>
+
+<div class="back">
+    <a asp-action="Index" class="btn btn-outline-secondary">Back</a>
+</div>

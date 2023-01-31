@@ -1,0 +1,24 @@
+﻿@model Post
+@{
+    var action = ViewBag.Action is not null ? ViewBag.Action : "CreatePost";
+}
+
+
+<form action="@action" method="POST">
+    <div class="mb-3">
+        @if(Model.Id !=0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.LabelFor(model => model.Title, new {@class="form-label"})
+        @Html.TextBoxFor(model => model.Title,new {@class="form-control"})
+        @Html.ValidationMessage("Title","", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Description, new {@class="form-label"})
+        @Html.TextAreaFor(model => model.Description, new {@class="form-control"})
+        @Html.ValidationMessage("Description","", new {@class = "text-danger"})
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form> 

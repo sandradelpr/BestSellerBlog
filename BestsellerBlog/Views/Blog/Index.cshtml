@@ -1,0 +1,66 @@
+﻿@model List<Post>
+@{
+    ViewData["Title"] = "Home page";
+    
+}
+
+<div class="newshead">
+    <h1 class="display-4">The News of BESTSELLER</h1>
+    <a class="btn btn-primary" asp-action="CreatePost">Add New</a>
+</div>
+
+
+<div class="body">
+    @foreach (var post in Model)
+    {
+        <div class="newscontainer " id="news-@post.Id">
+            <div class="head">
+                <div class="row">
+                    <div class="col">
+                        <p class="date small"><em>@post.CreatedDate.ToString("dd/MM/yyyy hh:mm")</em></p>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-6">
+                        <h2 class="title">
+                            <a asp-action="DetailsPost" asp-route-id=@post.Id>@post.Title</a>
+                        </h2>
+                    </div>
+                    <div class="col-2">
+                        <div class="options">
+                            <a class="btn btn-sm btn-outline-primary" asp-action="EditPost" asp-route-id=@post.Id>Edit</a>
+                            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#Modal@(post.Id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="content">@post.Description</div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="Modal@(post.Id)" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel">Delete Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this post?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" action="Blog/DeletePost">
+                    <input type="hidden" name="id" value="@post.Id"/>
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    }
+</div>
+
+  
+
+
