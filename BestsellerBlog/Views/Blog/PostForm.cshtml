@@ -6,7 +6,7 @@
 
 <form action="@action" method="POST">
     <div class="mb-3">
-        @if(Model.Id !=0)
+        @if(Model!= null && Model.Id !=0)
         {
             @Html.HiddenFor(model => model.Id)
         }

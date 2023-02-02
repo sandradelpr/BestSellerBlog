@@ -50,7 +50,7 @@ namespace BestsellerBlog.Controllers
         // GET: Blog/EditPost/5
         public IActionResult EditPost(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new StatusCodeResult(StatusCodes.Status400BadRequest);
             }
@@ -83,8 +83,18 @@ namespace BestsellerBlog.Controllers
         [HttpPost]
         public ActionResult DeletePost(int id)
         {
+            if(id == 0)
+            {
+                return new StatusCodeResult(StatusCodes.Status400BadRequest);
+            }
+
             Post post = blogService.PostRepository.GetPostById(id);
-            if(post != null)
+
+            if(post == null)
+            {
+                return new StatusCodeResult(StatusCodes.Status404NotFound);
+            }
+            else
             {
                 blogService.PostRepository.DeletePostById(id);
                 blogService.Save();
