@@ -41,7 +41,6 @@ namespace BestsellerBlog.Controllers
             {
                 post.CreatedDate = DateTime.Now;
                 blogService.PostRepository.InsertPost(post);
-                blogService.Save();
                 return RedirectToAction("Index");
             }
             return View(post);
@@ -72,7 +71,6 @@ namespace BestsellerBlog.Controllers
             {
                 post.CreatedDate = DateTime.Now;
                 blogService.PostRepository.UpdatePost(post);
-                blogService.Save();
                 return RedirectToAction("Index");
             }
             return View(post);
@@ -97,7 +95,6 @@ namespace BestsellerBlog.Controllers
             else
             {
                 blogService.PostRepository.DeletePostById(id);
-                blogService.Save();
             }
             
             return RedirectToAction("Index");

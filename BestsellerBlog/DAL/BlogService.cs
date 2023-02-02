@@ -15,10 +15,7 @@ namespace BestsellerBlog.DAL
                 return (_postRepository ?? new PostRepository(_context));
             }
         }
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {

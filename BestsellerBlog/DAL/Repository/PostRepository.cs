@@ -38,12 +38,14 @@ namespace BestsellerBlog.Repository
         public void InsertPost(Post post)
         {
             _context.Posts.Add(post);
+            _context.SaveChanges();
         }
 
         public void UpdatePost(Post post)
         {
             _context.Attach(post);
             _context.Entry(post).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }

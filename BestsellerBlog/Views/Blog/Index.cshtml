@@ -1,7 +1,6 @@
 ﻿@model List<Post>
 @{
-    ViewData["Title"] = "Home page";
-    
+    ViewData["Title"] = "Home page";  
 }
 
 <div class="newshead">
@@ -9,11 +8,10 @@
     <a class="btn btn-primary" asp-action="CreatePost">Add New</a>
 </div>
 
-
 <div class="body">
     @foreach (var post in Model)
-        {
-        <div class="newscontainer " id="news-@post.Id">
+    {
+        <div class="newscontainer" id="news-@post.Id">
             <div class="head">
                 <div class="row">
                     <div class="col">
@@ -35,7 +33,7 @@
                 </div>
             </div>
 
-        <div class="content">@post.Description</div>
+            <div class="content">@post.Description</div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="Modal@(post.Id)" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -57,11 +55,6 @@
               </div>
             </div>
           </div>
-            </div>
-        }
+        </div>
+    }
 </div>
-
-  
-    
-</div>
-
